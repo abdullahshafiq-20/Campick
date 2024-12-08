@@ -30,15 +30,14 @@ interface PaymentUpdateNotification {
 export const useSocket = (shopId?: string) => {
   const socket = useRef<Socket | null>(null);
   const { toast } = useToast();
+  const backendUrl = process.env.NEXT_PUBLIC_API_URL;
+  console.log(backendUrl);
 
   useEffect(() => {
     // Connect to your backend WebSocket server
-    socket.current = io(
-      process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000',
-      {
-        transports: ['websocket']
-      }
-    );
+    socket.current = io(backendUrl, {
+      transports: ['websocket']
+    });
 
     // Listen for new orders
     socket.current.on('newOrder', (data: OrderNotification) => {

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ShoppingBasket, Minus, Plus } from 'lucide-react';
 import { CartItem } from './product-grid';
 import Image from 'next/image';
+import { useToast } from '@/hooks/use-toast';
 
 interface CartProps {
   items: CartItem[];
@@ -12,6 +13,7 @@ interface CartProps {
   removeFromCart: (productId: string) => void;
   isMobile: boolean;
   onCheckout?: () => void;
+  isAuthenticated?: boolean;
 }
 
 export function Cart({
@@ -19,9 +21,25 @@ export function Cart({
   addToCart,
   removeFromCart,
   isMobile,
-  onCheckout
+  onCheckout,
+  isAuthenticated = false
 }: CartProps) {
+  const { toast } = useToast();
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  const handleCheckout = () => {
+    console.log('Authentication status:', isAuthenticated);
+    if (!isAuthenticated) {
+      toast({
+        title: 'Authentication Required',
+        description: 'Please sign in to proceed with checkout',
+        variant: 'destructive'
+      });
+      return;
+    }
+    onCheckout?.();
+  };
+
   const total = items.reduce((sum, item) => {
     const price = parseInt(item.price.replace('Rs. ', ''));
     return sum + price * item.quantity;
@@ -116,7 +134,7 @@ export function Cart({
               <Button
                 className="w-full"
                 disabled={items.length === 0}
-                onClick={onCheckout}
+                onClick={handleCheckout}
               >
                 Checkout
               </Button>
@@ -191,7 +209,7 @@ export function Cart({
         <Button
           className="w-full"
           disabled={items.length === 0}
-          onClick={onCheckout}
+          onClick={handleCheckout}
         >
           Checkout
         </Button>

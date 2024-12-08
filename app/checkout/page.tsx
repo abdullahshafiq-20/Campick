@@ -69,12 +69,12 @@ export default function Page() {
         onLogout={handleLogout}
         hideCart={true}
       />
-      <div className="container mx-auto px-4">
-        <Breadcrumbs
-          items={[{ label: 'Checkout', href: '#', id: 'checkout' }]}
-        />
-      </div>
-      <div className="flex-1 bg-gray-50 pt-16">
+      <div className="flex-1 bg-gray-50">
+        <div className="container mx-auto px-4 pt-4">
+          <Breadcrumbs
+            items={[{ label: 'Checkout', href: '#', id: 'checkout' }]}
+          />
+        </div>
         <Checkout />
       </div>
     </div>

@@ -76,6 +76,18 @@ export function UserProfileCard({
                   Not Verified
                 </Badge>
               )}
+              {userData.alert_count !== undefined && (
+                <Badge
+                  variant={userData.alert_count > 0 ? "destructive" : "success"}
+                  className="flex items-center gap-1"
+                >
+                  <Bell className="h-3 w-3" />
+                  {userData.alert_count > 0 
+                    ? `${userData.alert_count} Alert${userData.alert_count !== 1 ? 's' : ''}`
+                    : 'No Alerts'
+                  }
+                </Badge>
+              )}
               <Badge variant="secondary">ID: {userData.id}</Badge>
             </div>
           </div>
@@ -86,7 +98,7 @@ export function UserProfileCard({
                 <h2 className="text-2xl font-bold">
                   {userData?.user_name || 'User'}
                 </h2>
-                {userData?.alert_count && userData.alert_count > 0 && (
+                {/* {userData?.alert_count && userData.alert_count > 0 && (
                   <Badge
                     variant="destructive"
                     className="flex items-center gap-1"
@@ -95,7 +107,7 @@ export function UserProfileCard({
                     {userData.alert_count} Alert
                     {userData.alert_count !== 1 ? 's' : ''}
                   </Badge>
-                )}
+                )} */}
               </div>
               <div className="mt-2 space-y-2">
                 <div className="flex items-center gap-2 text-muted-foreground">

@@ -190,6 +190,7 @@ export default function ShopPage({ params }: ShopPageProps) {
               removeFromCart={removeFromCart}
               isMobile={true}
               onCheckout={handleCheckout}
+              isAuthenticated={isLoggedIn}
             />
           </div>
 
@@ -214,6 +215,7 @@ export default function ShopPage({ params }: ShopPageProps) {
                   removeFromCart={removeFromCart}
                   isMobile={false}
                   onCheckout={handleCheckout}
+                  isAuthenticated={isLoggedIn}
                 />
               </div>
             </div>

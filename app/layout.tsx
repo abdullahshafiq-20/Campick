@@ -10,7 +10,11 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'CamPick'
+  title: 'CamPick',
+  description: 'Campus Food Delivery App',
+  icons: {
+    icon: '/app_logo_192.png'
+  }
 };
 
 export default async function RootLayout({

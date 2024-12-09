@@ -217,10 +217,10 @@ export default function EmployeeListingPage() {
 
   // Get active and completed orders
   const activeOrders = orders.filter((order) =>
-    ['pending', 'preparing'].includes(order.status)
+    ['pending', 'preparing', 'discarded'].includes(order.status)
   );
   const completedOrders = orders.filter((order) =>
-    ['delivered', 'rejected'].includes(order.status)
+    ['delivered', 'rejected', 'discarded'].includes(order.status)
   );
 
   // Get current page orders

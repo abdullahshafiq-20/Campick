@@ -8,7 +8,7 @@ export function Footer1() {
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="text-sm text-muted-foreground">
-            © 2024 Campus Bites. All rights reserved.
+            © 2024 Campick Nuces. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <a
@@ -24,7 +24,7 @@ export function Footer1() {
               Terms of Service
             </a>
             <a
-              href="#"
+              href="mailto:campicknuces@gmail.com"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Contact

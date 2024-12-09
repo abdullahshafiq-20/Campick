@@ -42,7 +42,8 @@ const ORDER_STATUSES = [
   // 'pending',
   // 'preparing',
   'delivered',
-  'rejected'
+  'rejected',
+  'discarded'
 ];
 
 const PAYMENT_STATUSES = [
